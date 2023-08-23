@@ -14,6 +14,8 @@ application.use(cors());
 
 application.use(express.json());
 
+application.use(express.static("public"));
+
 application.use("/users", usersRouter);
 application.use("/api/contacts", contactsRouter);
 

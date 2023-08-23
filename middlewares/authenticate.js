@@ -7,7 +7,7 @@ const { SECRET_KEY } = process.env;
 const { User } = userModel;
 
 const authenticate = async (request, response, next) => {
-   
+    // в Node.js всі хаголовки пишуться з маленької літери
     const { authorization = "" } = request.headers;
     const [bearer, token] = authorization.split(" ");
     if (bearer !== "Bearer") {
