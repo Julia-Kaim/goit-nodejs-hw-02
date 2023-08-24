@@ -3,6 +3,7 @@ const Joi = require("joi");
 
 const { handleMongooseError } = require("../helpers");
 
+
 const contactSchema = new Schema(
     {
         name: {
@@ -25,18 +26,16 @@ const contactSchema = new Schema(
             required: true,
         },
     },
-
+   
     { versionKey: false }
 );
 
-
 contactSchema.post("save", handleMongooseError);
-
 
 const requiredFieldsSchema = Joi.object({
     name: Joi.string().required(),
     email: Joi.string().required(),
-
+   
     phone: Joi.string()
         .pattern(/^\(\d{3}\)\s\d{3}-\d{4}$/)
         .required(),
