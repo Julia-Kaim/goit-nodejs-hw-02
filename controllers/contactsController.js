@@ -44,9 +44,7 @@ const deleteContact = async (request, response, next) => {
 
 const updateContact = async (request, response, next) => {
     const { contactId } = request.params;
-    // поверне стару версію, а в базі документ оновить
-    // для повернення нової версії потрібен третій параметр
-    // findByIdAndUpdate запише лише ті поля які передаються
+   
     const result = await Contact.findByIdAndUpdate(contactId, request.body, {
         new: true,
     });

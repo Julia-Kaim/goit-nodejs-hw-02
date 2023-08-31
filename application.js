@@ -1,4 +1,5 @@
 const express = require("express");
+
 const logger = require("morgan");
 const cors = require("cors");
 
@@ -13,6 +14,8 @@ application.use(logger(formatsLogger));
 application.use(cors());
 
 application.use(express.json());
+
+application.use(express.static("public"));
 
 application.use("/users", usersRouter);
 application.use("/api/contacts", contactsRouter);
